@@ -83,3 +83,17 @@ print order are asserted by:
 ```bash
 node --test scripts/check-bindings-cli.test.mjs
 ```
+
+## Committed snapshot health
+
+CI runs `snapshot:test` and `snapshot:check` (`scripts/check-snapshots.mjs`) to
+ensure all 51 required Soroban contract test snapshot categories under
+`contracts/round/test_snapshots/test/`, the contract event golden snapshot
+(`packages/round-bindings/fixtures/event-snapshot.json`), and the bundled
+dashboard evidence fixture (`apps/web/src/dashboard/fixture.ts`) are present
+and non-stale:
+
+```bash
+pnpm snapshot:test
+pnpm snapshot:check
+```
